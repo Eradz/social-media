@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    background: var(--background);
+}
+.main-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+}
