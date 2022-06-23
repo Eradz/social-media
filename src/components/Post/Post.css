@@ -1,0 +1,23 @@
+.post{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 200px;
+}
+.post-info{
+    display: flex;
+    gap: 20px;
+}
+.btn3{
+    background: var(--gradient);
+    border-radius: 200px;
+    padding: 0px 20px;
+}
+.post input{
+    border: none;
+    border-radius: 25px;
+    background: var(--background);
+    width: 25vw;    
+}
