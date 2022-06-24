@@ -3,7 +3,8 @@
     right: 10%;
     background: var(--white);
     margin-top: 30px;
-    padding: 20px;
+    width: 22.5%;
+    padding: 10px;
     border-radius: 20px;
     height: max-content;
 }
