@@ -1,7 +1,7 @@
 .story-row{
     display: flex;
     gap:5px;
-    margin-top: 30px;
+    margin-top: 7%;
 }
 .image{
     display: flex;
@@ -47,4 +47,13 @@
 }
 .img14{
     background-image: url(../../faces/face7.jpg);
+}
+@media screen and (max-width: 800px) {
+    .story-row{
+        justify-content: center;
+        align-items: center;
+    }
+    .image{
+        width: 70px;
+    }
 }

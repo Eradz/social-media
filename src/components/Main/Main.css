@@ -16,3 +16,13 @@
 .between{
     padding-top: 50px;
 }
+@media screen and (max-width: 900px) {
+    
+    .middle{
+        margin-top: 10%;
+        margin-left: 0;
+    }
+    .main-row{
+        margin:0;
+    }
+}

@@ -41,3 +41,8 @@
 .searchbar input{
     width: 15vw;
 }
+@media screen and (max-width: 800px) {
+    .messages{
+        display: none;
+    }
+}
