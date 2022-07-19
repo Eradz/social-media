@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Eradz/social-media/static/css/main.5829ecc7.css",
+    "main.css": "/Eradz/social-media/static/css/main.f3504abf.css",
     "main.js": "/Eradz/social-media/static/js/main.8ae05a99.js",
     "static/js/787.0bca8be2.chunk.js": "/Eradz/social-media/static/js/787.0bca8be2.chunk.js",
     "static/media/face1.jpg": "/Eradz/social-media/static/media/face1.251b15199ec0eefb6dcb.jpg",
@@ -12,12 +12,12 @@
     "static/media/face2.jpg": "/Eradz/social-media/static/media/face2.c7c0e5865dbeeca50580.jpg",
     "static/media/face4.jpg": "/Eradz/social-media/static/media/face4.d0de34ba91b5367157fb.jpg",
     "index.html": "/Eradz/social-media/index.html",
-    "main.5829ecc7.css.map": "/Eradz/social-media/static/css/main.5829ecc7.css.map",
+    "main.f3504abf.css.map": "/Eradz/social-media/static/css/main.f3504abf.css.map",
     "main.8ae05a99.js.map": "/Eradz/social-media/static/js/main.8ae05a99.js.map",
     "787.0bca8be2.chunk.js.map": "/Eradz/social-media/static/js/787.0bca8be2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5829ecc7.css",
+    "static/css/main.f3504abf.css",
     "static/js/main.8ae05a99.js"
   ]
 }
