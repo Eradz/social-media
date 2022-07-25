@@ -47,6 +47,21 @@
     padding:10px;
     border-radius: 5px;
 }
+.password{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.password span i {
+    position: absolute;
+    top: 5px;
+    right:2%;
+    font-size: 20px;
+}
+.password input{
+    width: 100%;
+}
 .signin-inputs a{
     color:rgba(16,106,214,1) 83%;
     text-decoration: none;

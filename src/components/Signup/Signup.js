@@ -1,52 +1,71 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import {toast} from 'react-toastify'
 import './Signup.css'
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import { register, reset } from '../redux/authSlice';
+import { Loading } from '../loading/loading';
+
 
 export const Signup = () => {
-  const [route, setRoute] = useState("/signup")
   const[firstname, setFirstname] = useState('')
   const[lastname, setLastname] = useState('')
   const[email,setEmail] = useState('')
   const[password, setPassword] = useState('')
+  const [text, setText] = useState(false)
+  const change = () => {
+    setText(!text)
+  }
+  const onFirstname = (e) => {
+    setFirstname(e.target.value)
+  }
+  const onLastname = (e) => {
+    setLastname(e.target.value)
+  }
+  const onEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const onPassword = (e) => {
+    setPassword(e.target.value)
+  }
 
-const onFirstname = (e) => {
-  setFirstname(e.target.value)
-}
-const onLastname = (e) => {
-  setLastname(e.target.value)
-}
-const onEmail = (e) => {
-  setEmail(e.target.value)
-}
-const onPassword = (e) => {
-  setPassword(e.target.value)
-}
-
-
-  const [signup, setSignup]= useState(false)
   
-
-  const loging = () => {
-    setSignup(!signup)
-  fetch("http://localhost:3000/signup",{
-    method: "post",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      firstname: firstname,
-      lastname: lastname,
-      password: password,
-      email: email,
-    })
-  })
-  .then(response => response.json())
-  .then(users => {
-    if (users) {
-      console.log(users)
-      setRoute('/home')
-    }
-  })
- 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {user, isLoading, isError,isSuccess, message} = useSelector( (state) => state.auth)
+useEffect(()=> {
+if (isError){
+  toast.error(message)
 }
+
+if(isSuccess || user ){
+  navigate('/home')
+}
+
+dispatch(reset())
+
+}, [user, isError, isSuccess, message, navigate, dispatch])
+
+
+const handleSubmit =(e)=>{
+  e.preventDefault()
+
+  const userData = {
+    firstname,
+    lastname,
+    email,
+    password
+  }
+  dispatch(register(userData))
+
+}
+
+if(isLoading) {
+  return <Loading />
+}
+
+
+ 
 
   return (
     <div className='signin-container'>
@@ -64,7 +83,7 @@ const onPassword = (e) => {
                         </button>
                     </Link>
                   </div>
-            <div className='signin-inputs'>
+            <form onSubmit={handleSubmit} className='signin-inputs' >
                   <input 
                   type="text" name="firstname" 
                   placeholder='firstname' 
@@ -86,23 +105,24 @@ const onPassword = (e) => {
                   value={email}
                   onChange={onEmail}
                   required/>
-                  <input
-                  type="password" name="password" 
-                  placeholder='password'
-                  id='password' 
-                  value={password}
-                  onChange={onPassword}
-                  required/>
-                  <Link className='link2' to={route}>
+                  <div className='password'>
+                      <input
+                      type={text? "text" : "password"} name="password" 
+                      placeholder='password'
+                      id='password' 
+                      value={password}
+                      onChange={onPassword}
+                      required/>
+                      <span onClick={change}>{text ? <i class="uil uil-eye"></i> : <i class="uil uil-eye-slash"></i> }</span>
+                  </div>
                   <button 
-                  onClick={loging}
-                  type='submit' className='primary-btn'>
+                  type="submit"
+                  className='primary-btn'>
                   Signup
                   </button>
-                  </Link>
                   <a href='#home'>Forgot password?</a>
                 <p>Already a member? <Link to="/">Login</Link></p>
-            </div>
+            </form>
 
         </div>
 </div>

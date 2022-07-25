@@ -1,39 +1,60 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, reset } from '../redux/authSlice';
+import { Loading } from '../loading/loading';
+
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [login, setLogin] = useState(false)
-  const [route, setRoute] = useState('')
-  
+  const [text, setText] = useState(false)
+
+
+const navigate = useNavigate()
+const dispatch = useDispatch()
+
+const {user, isLoading, isSuccess, isError, message} = useSelector((state) => state.auth)
+
+useEffect(() => {
+  if(isError){
+    toast.error(message)
+  }
+  if(isSuccess || user){
+    navigate('/home')
+  }
+
+  dispatch(reset())
+
+},[message, user, isSuccess, isError, navigate, dispatch])
+
+
+  const change = () => {
+    setText(!text)
+  }
  
   const onEmailChange = (e) => {
     setEmail(e.target.value)
   }
-  const onPasswordChange = (e) => {
+  const onPassword = (e) => {
     setPassword(e.target.value)
   }
  
 
-  const loging = () => {
-    
-    fetch('http://localhost:3000/signin', {
-      method: "post",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        email: email,
-        password: password
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data === 'success'){
-          setRoute('/home')
-        }
-      })
-      setLogin(!login)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+      const userData = {
+        email,
+        password
+      }
+      dispatch(login(userData))
+  }
+
+  if(isLoading){
+    return <Loading/>
   }
   
   return (
@@ -53,28 +74,31 @@ export const Login = () => {
                                 </button>
                       </Link>
                   </div>
-                  <div className='login-inputs'>
+                  <form onSubmit={handleSubmit} className='login-inputs'>
                     <input 
                     type="email" name="email" 
                     placeholder="Email Address"
                     value={email}
                     onChange= {onEmailChange}
                     ></input>
-                    <input type="password" name="password" 
-                    placeholder='password'
-                    value={password}
-                    onChange= {onPasswordChange}
-                    ></input>
+                  <div className='password'>
+                      <input
+                      type={text? "text" : "password"} name="password" 
+                      placeholder='password'
+                      id='password' 
+                      value={password}
+                      onChange={onPassword}
+                      required/>
+                      <span onClick={change}>{text ? <i class="uil uil-eye"></i> : <i class="uil uil-eye-slash"></i> }</span>
+                  </div>
                     <a href='#home'>Forgot password?</a>
-                  <Link className='link1' to={route}>
                   <button  
-                  onClick={loging}
+                  type= 'submit'
                   className='primary-btn'>
                   Login
                   </button>
-                  </Link>
                   <p>Not a member?  <Link to="/signup">Signup</Link></p>
-                  </div>
+                  </form>
 
               </div>
         </div>

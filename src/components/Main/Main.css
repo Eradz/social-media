@@ -6,12 +6,10 @@
     background: var(--background);
 }
 .main-row{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 19vw auto 20vw;
+    column-gap: 1.2rem;
     margin: 0 10%;
-}
-.middle{
-    margin-left: 22.5%;
 }
 .between{
     padding-top: 50px;
@@ -23,6 +21,11 @@
         margin-left: 0;
     }
     .main-row{
+        grid-template-columns: 10vw auto;
         margin:0;
+        justify-content: center;
+    }
+    .between{
+        padding-top:0px ;
     }
 }
