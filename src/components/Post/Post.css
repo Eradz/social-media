@@ -21,3 +21,10 @@
     background: var(--background);
     width: 25vw;    
 }
+@media screen and (max-width: 800px) {
+    .post input{
+        width:80%;
+        margin-right: 5px;
+        text-align: center;
+    }
+}

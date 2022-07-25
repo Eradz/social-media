@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Message.css";
-import {Link} from "react-router-dom"
 import { Primary } from '../Primary';
+import { Requests } from '../Requests';
+import { General } from '../General';
 
 export const Message = () => {
+    let[click, setClick]= useState(<Primary/>)
+    const primary = () => {
+        setClick(<Primary/>)
+    }
+    const general = () => {
+        setClick(<General/> )
+    }
+    const requests =()=> {
+        setClick(<Requests/>)
+    }
   return (
     <div className='messages'>
         <div className='message-top'>
@@ -15,21 +26,21 @@ export const Message = () => {
         <input type="search" placeholder="search for creators, projects and inspirations " name="search"></input>
         </div>
         <div className='link-row'>
-            <Link className='link' >
+            <h3 onClick={primary} className='link' >
                 <h3>Primary</h3>
                 <div className='line'></div>
-            </Link>
-            <Link className='link' >
+            </h3>
+            <h3 onClick={general}  className='link' >
                 <h3>General</h3>
                 <div className='line'></div>
-            </Link>
-            <Link className='link' >
+            </h3>
+            <h3 onClick={requests} className='link' >
                 <h3>Requests(7)</h3>
                 <div className='line'></div>
-            </Link>
+            </h3>
         </div>
-        <div className='primary'>
-          <Primary/>
+        <div >
+          {click}
         </div>
     </div>
   )

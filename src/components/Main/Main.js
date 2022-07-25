@@ -11,17 +11,17 @@ export const Main = () => {
   return (
     <div className='main'>
       <Nav/>
-      <div className='between'>
-      <div className='main-row'>
-      <Sidebar/>
-      <div className='middle'>
-      <Story/>
-      <Post/>
-      <News/>
-      </div>
-      <Message/>
-      </div>
-      </div>
+          <div className='between'>
+              <div className='main-row'>
+                  <Sidebar/>
+                        <div className='middle'>
+                        <Story/>
+                        <Post/>
+                        <News/>
+                        </div>
+                  <Message/>
+              </div>
+          </div>
     </div>
   )
 }

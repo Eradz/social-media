@@ -11,6 +11,7 @@
     background: var(--white);
     border-radius: 30px;
     padding: 20px;
+    position: relative;
 }
 .img20{
     background-image:url(../../../faces/face2.jpg) ;
@@ -89,4 +90,9 @@
 }
 .last{
     margin-top: 60px;
+}
+@media screen and (max-width: 800px) {
+    .news-coln{
+        margin: 20px;
+    }
 }

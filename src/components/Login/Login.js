@@ -1,8 +1,62 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, reset } from '../redux/authSlice';
+import { Loading } from '../loading/loading';
+
 
 export const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [text, setText] = useState(false)
+
+
+const navigate = useNavigate()
+const dispatch = useDispatch()
+
+const {user, isLoading, isSuccess, isError, message} = useSelector((state) => state.auth)
+
+useEffect(() => {
+  if(isError){
+    toast.error(message)
+  }
+  if(isSuccess || user){
+    navigate('/home')
+  }
+
+  dispatch(reset())
+
+},[message, user, isSuccess, isError, navigate, dispatch])
+
+
+  const change = () => {
+    setText(!text)
+  }
+ 
+  const onEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const onPassword = (e) => {
+    setPassword(e.target.value)
+  }
+ 
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+      const userData = {
+        email,
+        password
+      }
+      dispatch(login(userData))
+  }
+
+  if(isLoading){
+    return <Loading/>
+  }
+  
   return (
     
         <div className='login-container'>
@@ -20,15 +74,31 @@ export const Login = () => {
                                 </button>
                       </Link>
                   </div>
-                  <div className='login-inputs'>
-                    <input type="email" name="email" placeholder="Email Address"></input>
-                    <input type="password" name="password" placeholder='password'></input>
-                    <a href='#home'>Forgot password?</a>
-                  <Link className='link1' to='/home'>
-                  <button className='primary-btn'>Login</button>
-                  </Link>
-                  <p>Not a member?  <Link to="/signup">Signup</Link></p>
+                  <form onSubmit={handleSubmit} className='login-inputs'>
+                    <input 
+                    type="email" name="email" 
+                    placeholder="Email Address"
+                    value={email}
+                    onChange= {onEmailChange}
+                    ></input>
+                  <div className='password'>
+                      <input
+                      type={text? "text" : "password"} name="password" 
+                      placeholder='password'
+                      id='password' 
+                      value={password}
+                      onChange={onPassword}
+                      required/>
+                      <span onClick={change}>{text ? <i class="uil uil-eye"></i> : <i class="uil uil-eye-slash"></i> }</span>
                   </div>
+                    <a href='#home'>Forgot password?</a>
+                  <button  
+                  type= 'submit'
+                  className='primary-btn'>
+                  Login
+                  </button>
+                  <p>Not a member?  <Link to="/signup">Signup</Link></p>
+                  </form>
 
               </div>
         </div>
