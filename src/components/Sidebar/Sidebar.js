@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { BiLogOut, BiHome, BiPalette } from "react-icons/bi";
-import { AiFillBell, AiFillSetting } from "react-icons/ai";
-import { FaEnvelope } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
+import { BiLogOut, BiHome, BiEnvelopeOpen,BiEnvelope, BiBell } from "react-icons/bi";
+import { FiSettings } from "react-icons/fi";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../redux/authSlice";
+import { openMessage, closeMessage } from "../redux/messageSlice";
 
 export const Sidebar = () => {
+	const{message, setMessage} = useState(false)
+	const toggle = () => {
+		setMessage(!message ? dispatch(openMessage()) : dispatch(closeMessage()))
+		console.log(toggle)
+	}
+	const toggley = () => {
+		setMessage(message ? dispatch(openMessage()) : dispatch(closeMessage()))
+		console.log(toggle)
+	}
+
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -32,20 +42,20 @@ export const Sidebar = () => {
 						<h2>Home</h2>
 					</a>
 					<a href="#">
-						<AiFillBell size={20} />
+						<BiBell size={20} />
 						<h2>Notifications</h2>
 					</a>
-					<a href="#">
-						<FaEnvelope size={20} />
+					<a href="#" onClick={toggle} >  
+						<BiEnvelopeOpen  size={20} /> 
 						<h2>Messages</h2>
 					</a>
-					<a href="#">
-						<BiPalette size={20} /> <h2>Theme</h2>
+					<a href="#" onClick={toggley}>
+						<BiEnvelope size={20} /> <h2>Close Message</h2>
 					</a>
 					<a href="#">
-						<AiFillSetting size={20} /> <h2>Settings</h2>
+						<FiSettings size={20} /> <h2>Settings</h2>
 					</a>
-					<button onClick={onLogout} href="#">
+					<button onClick={onLogout}>
 						<BiLogOut size={20} /> <h2>logout</h2>
 					</button>
 				</div>
