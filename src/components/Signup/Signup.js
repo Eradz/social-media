@@ -68,6 +68,7 @@ if(isLoading) {
  
 
   return (
+    <div className='sign-main'>
     <div className='signin-container'>
         <div className='signin-box'>
             <h1>Signup Form</h1>
@@ -125,6 +126,7 @@ if(isLoading) {
             </form>
 
         </div>
+</div>
 </div>
   )
 }

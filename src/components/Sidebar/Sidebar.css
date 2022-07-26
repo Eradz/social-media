@@ -72,29 +72,30 @@
     color:var(--blue);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .sidebar{
+        margin: 0;
         width: 100%;
         height: 6%;
         z-index: 3;
+        border-radius: 0;
+        top: 60px;
     }
     .side{
         display: flex;
     }
     .links{
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         gap:30px;
         width: 100%;
-        background: var(--white);
     }
     .links h2{
-        display: none;
+        display:none;
     }
-    .links a i{
-        font-size: 25px;
-        color: var(--blue)
+    .links button{
+        background: transparent;
     }
     .sidetop{
         background: var(--white);
@@ -111,4 +112,9 @@
         margin: 0 auto;
     }
   
+}
+@media screen and (max-width: 905px) {
+    .links h2{
+        font:12px ;
+    }
 }

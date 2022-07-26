@@ -48,11 +48,21 @@
 .searchbar input{
     width: 15vw;
 }
-h3{
+.link-row h3{
     font-size: 1rem;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 901px) {
     .messages{
         display: none;
+    }
+}
+@media screen and (max-width:1316px) {
+    .link-row h3{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width: 902px ) {
+    .messages{
+        right:5%;
     }
 }
