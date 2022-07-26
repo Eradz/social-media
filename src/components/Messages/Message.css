@@ -1,4 +1,5 @@
 .messages{
+    display: block;
     position: sticky;
     top: 70px;
     right: 10%;
@@ -53,16 +54,29 @@
 }
 @media screen and (max-width: 901px) {
     .messages{
+        position: absolute;
+        right: 100px;
+        top: 90px;
+        width: 60vw;
+        box-shadow: 0 0 9px 0 var(--blue);
         display: none;
     }
-}
-@media screen and (max-width:1316px) {
     .link-row h3{
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
+    
+    
 }
+@media screen and (min-width: 450px) {
+    .messages{
+        display: none;
+    }
+    
+}
+    
 @media screen and (min-width: 902px ) {
     .messages{
+        display: block;
         right:5%;
     }
 }

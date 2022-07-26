@@ -6,6 +6,9 @@
     margin-top: 7%;
     
 }
+h6{
+    color: white;
+}
 .image{
     display: flex;
     flex-direction: column;

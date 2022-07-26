@@ -10,7 +10,7 @@ export const Nav = () => {
         <input type="search" placeholder="search for creators, projects and inspirations " name="search"></input>
         </div>
         <div className='nav-end'>
-            <button className='btn1'>create</button>
+            <button className='btn1'><label for='create post'>create</label></button>
             <div className='img1'></div>
         </div>
     </div>
