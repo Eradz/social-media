@@ -1,7 +1,10 @@
 .story-row{
     display: flex;
-    gap:5px;
+    align-items: center;
+    justify-content: space-between;
+    gap:0.4rem;
     margin-top: 7%;
+    
 }
 .image{
     display: flex;
@@ -9,8 +12,8 @@
     justify-content: space-between;
     background-size: cover;
     background-position: center;
-    width: 100px;
-    height: 200px;
+    width: 10rem;
+    height: 9rem;
     padding: 5px;
     border-radius: 20px;
 }
@@ -48,12 +51,24 @@
 .img14{
     background-image: url(../../../faces/face7.jpg);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .story-row{
+        margin-top: 0;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
     .image{
-        width: 70px;
+        max-width:150px;
+        max-height: 170px;
+    }
+}
+@media screen and (min-width: 400px) {
+    .story-row{
+        margin-top: 20px;
+    }
+    .image{
+        max-width: 80px;
+        max-height: 1700px;
     }
 }
