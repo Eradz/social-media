@@ -53,7 +53,6 @@
 }
 @media screen and (max-width: 900px) {
     .story-row{
-        margin-top: 0;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -64,9 +63,6 @@
     }
 }
 @media screen and (min-width: 400px) {
-    .story-row{
-        margin-top: 20px;
-    }
     .image{
         max-width: 80px;
         max-height: 1700px;
