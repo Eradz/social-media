@@ -83,14 +83,9 @@
 }
 
 .active{
-    background: red;
+    color: red;
 }
-/* .news-bottom-top p{
-    position: absolute;
-    left: 120px;
-    top: 15px;
-    z-index: 1000;
-} */
+
 .last{
     margin-top: 0px;
 }
@@ -106,9 +101,6 @@
     .img20{
         width: 30px;
         height:30px;
-    }
-    .news-box{
-        
     }
     .news-top{
         font-size: 12px;
