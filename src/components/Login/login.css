@@ -10,8 +10,6 @@
     background: var(--white);
     padding: 20px;
     box-shadow: 0 0 30px 0;
-
-
 }
 .button-box{
     display: flex;
@@ -54,6 +52,7 @@
     text-decoration: none;
 }
 .login-inputs p{
+    margin-top: 30px;
     text-align: center;
 }
 
@@ -62,6 +61,12 @@
     width: 100%;
 }
 @media screen and (max-width: 800px) {
+    .login-box{
+        width: 95vw;
+        height: 120%;
+        margin-left: -33px;
+        margin-top: -90px;
+    }
     .login-container{
         padding: 60% 10%;
     }
