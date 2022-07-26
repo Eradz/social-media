@@ -3,8 +3,12 @@ import "./Message.css";
 import { Primary } from '../Primary';
 import { Requests } from '../Requests';
 import { General } from '../General';
+import {GiCancel} from 'react-icons/gi'
+import { useDispatch } from 'react-redux';
+import { closeMessage } from "../redux/messageSlice";
 
 export const Message = () => {
+    const dispatch = useDispatch()
     let[click, setClick]= useState(<Primary/>)
     const primary = () => {
         setClick(<Primary/>)
@@ -19,7 +23,9 @@ export const Message = () => {
     <div className='messages'>
         <div className='message-top'>
             <h2>Message</h2>
-            <span><i class="uil uil-edit"></i></span>
+            <div className='buttonss' onClick={() => {dispatch(closeMessage())}}>
+                <GiCancel size={20}/>
+            </div>
         </div>
         <div className='searchbar'>
             <span><i class="uil uil-search"></i></span>
