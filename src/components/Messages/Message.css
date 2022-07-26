@@ -39,6 +39,8 @@
 }
 .link-row{
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px auto;
     gap:10px;
 }
@@ -52,17 +54,20 @@
 .link-row h3{
     font-size: 1rem;
 }
+.buttonss:hover{
+    cursor: pointer;
+}
 @media screen and (max-width: 901px) {
     .messages{
         position: absolute;
-        right: 100px;
+        right: 40px;
         top: 90px;
-        width: 60vw;
+        width: 80vw;
         box-shadow: 0 0 9px 0 var(--blue);
         display: none;
     }
     .link-row h3{
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     
