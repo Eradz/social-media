@@ -6,8 +6,11 @@ import { Message } from '../Messages/Message';
 import Story from '../Story/Story';
 import { Post } from '../Post/Post';
 import News from '../Newsfeed/News';
+import { useSelector } from 'react-redux';
 
 export const Main = () => {
+  const {isOpen} =useSelector((state) => state.message)
+
   return (
     <div className='main'>
       <Nav/>
@@ -19,7 +22,7 @@ export const Main = () => {
                         <Post/>
                         <News/>
                         </div>
-                  <Message/>
+                  {isOpen && <Message/>}
               </div>
           </div>
     </div>
