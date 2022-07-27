@@ -7,6 +7,7 @@ import { Main } from './components/Main/Main';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 
+
 function App() {
  
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="/home" element={<Main/>}/>
             </Routes>
         </div>
+        
     </BrowserRouter>
     <ToastContainer/>
     </>
