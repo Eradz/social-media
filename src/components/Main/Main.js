@@ -6,12 +6,14 @@ import { Message } from '../Messages/Message';
 import Story from '../Story/Story';
 import { Post } from '../Post/Post';
 import News from '../Newsfeed/News';
+import Request from '../requests/Request';
 import { useSelector } from 'react-redux';
 import Notifications from '../Notifications/Notification';
 
 export const Main = () => {
   const {isOpen} =useSelector((state) => state.message)
   const {isOpened} =useSelector((state)=> state.noti)
+  const {isShow} = useSelector((state)=> state.req)
 
   return (
     <div className='main'>
@@ -27,6 +29,7 @@ export const Main = () => {
                   {isOpen && <Message/>}
                   {isOpened && <Notifications/>}
               </div>
+             {isShow && <Request/>}
           </div>
     </div>
   )
