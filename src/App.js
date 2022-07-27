@@ -20,7 +20,6 @@ function App() {
               <Route exact path="/home" element={<Main/>}/>
             </Routes>
         </div>
-        
     </BrowserRouter>
     <ToastContainer/>
     </>

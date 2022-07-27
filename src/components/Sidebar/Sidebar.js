@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../redux/authSlice";
 import { openMessage} from "../redux/messageSlice";
 import { openNotifications } from "../redux/notificationslice";
+import { openRequests } from "../redux/requestSlice";
+
 
 export const Sidebar = () => {
 	const toggle = () => { dispatch(openMessage())}
@@ -43,7 +45,7 @@ export const Sidebar = () => {
 						<BiEnvelopeOpen  size={20} /> 
 						<h2>Messages</h2>
 					</a>
-					<a href="#" onClick={toggle} >  
+					<a href="#" onClick={() => {dispatch(openRequests())}} >  
 						<HiOutlineUsers  size={20} /> 
 						<h2>Friend Requests</h2>
 					</a>
